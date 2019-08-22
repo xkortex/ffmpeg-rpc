@@ -1,0 +1,22 @@
+---
+# Variables can be set from the shell: `DOCKERTAG=foo docker-compose build`
+# or from a .env file. See docker-compose documentation for details
+# Variable DOCKERUSER should be set to your dockerhub user
+# Alternatively, use a docker registry url as the image name
+version: '3.7'
+services:
+  # Base container for building dependencies
+  ffmpeg-serv:
+    container_name: ffmpeg-serv
+    build:
+      context: .
+      dockerfile: docker/basic.docker
+    ports:
+      - 45654:45654
+    volumes:
+      - "$HOME:$HOME:ro"
+      - "$HOME/tmp/frpc/:/root/out/"
+    tty: true
+    image: "xkortex/ffmpeg-rpc:$BASE_TAG"
+
+...
