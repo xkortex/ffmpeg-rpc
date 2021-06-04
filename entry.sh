@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python -m spaghetr.server
+exec python -m spaghetr.server

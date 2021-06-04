@@ -10,7 +10,7 @@ services:
     container_name: ffmpeg-serv
     build:
       context: .
-      dockerfile: docker/basic.docker
+      dockerfile: docker/basic.df
     ports:
       - 45654:45654
     volumes:
